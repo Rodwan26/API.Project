@@ -1,0 +1,14 @@
+let request = new XMLHttpRequest();
+      request.open("GET", "https://jsonplaceholder.typicode.com/posts");
+      request.responseType = "json";
+      request.send();
+      request.onload = function () {
+        let posts = request.response;
+        for (post of posts) {
+          console.log(post.title);
+          document.getElementById(
+            "content"
+          ).innerHTML += ` <h3>${post.title}</h3>
+`;
+        }
+      };
